@@ -24,7 +24,7 @@ class FullMoonTarotBlogger(SimplestBlogger):
             TelegramPoster(chat_id=tg_chat_id, processor=processor),
             VkPoster(group_id=vk_group_id, processor=processor)
         ]
-        super().__init__(builder, posters, True)
+        super().__init__(builder, posters)
 
 def handle():
     today = datetime.now().date()
