@@ -1,3 +1,3 @@
-simple-blogger==0.0.41
+simple-blogger==0.0.50
 ephem>=4.2
 importlib>=1.0.4
