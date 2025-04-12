@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 from simple_blogger.poster.telegram import TelegramPoster
 from simple_blogger.poster.vk import VkPoster
-from simple_blogger.blogger.basic import SimplestBlogger
+from simple_blogger.blogger import SimplestBlogger
 from simple_blogger.builder import PostBuilder
 from simple_blogger.builder.content import ContentBuilder
 from simple_blogger.generator.deepseek import DeepSeekTextGenerator
