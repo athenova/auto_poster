@@ -23,7 +23,7 @@ class HistoricBlogger(Journalist):
         super().__init__(posters)
 
 def post(day=None):
-    match day or datetime.date.today().weekday:
+    match day or datetime.date.today().weekday():
         case 0:
             blogger = HistoricBlogger(
                 "Ты - историк спорта", 
@@ -68,4 +68,4 @@ def post(day=None):
             )
     blogger.post()
 
-# post(6)
+post()
