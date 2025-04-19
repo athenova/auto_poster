@@ -24,7 +24,7 @@ class HoroscopeBlogger(SimplestBlogger):
         ]
         super().__init__(builder, posters)
 
-def handle():
+def post():
     bloggers = [
         HoroscopeBlogger(sign='рыбы', tg_chat_id='@pisces_the', vk_group_id='229837683'),
         HoroscopeBlogger(sign='овен', tg_chat_id='@aries_the', vk_group_id='229837854'),

@@ -7,7 +7,7 @@ from simple_blogger.generator.deepseek import DeepSeekTextGenerator
 from simple_blogger.preprocessor.text import TagAdder
 from simple_blogger.builder.prompt import IdentityPromptBuilder
 
-def handle():
+def post():
     processor = TagAdder(['#мама', '#ятебялюблю', '#тысамаялучшая'])
 
     blogger = SimplestBlogger(

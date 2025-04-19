@@ -26,7 +26,7 @@ class FullMoonTarotBlogger(SimplestBlogger):
         ]
         super().__init__(builder, posters)
 
-def handle():
+def post():
     today = datetime.now().date()
     check_date = today + timedelta(days=2)   
     full_moon_date = ephem.next_full_moon(today).datetime().date()
