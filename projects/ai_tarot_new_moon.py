@@ -12,7 +12,7 @@ import ephem
 class NewMoonTarotBlogger(SimplestBlogger):
     def __init__(self, sign, tg_chat_id, vk_group_id):
         today = datetime.now().date()
-        next_new_moon = ephem.next_full_moon(today).datetime()
+        next_new_moon = ephem.next_new_moon(today).datetime()
         builder = PostBuilder(
             message_builder=ContentBuilder(
                 generator=DeepSeekTextGenerator(system_prompt='Ты - профессиональный таролог'),
