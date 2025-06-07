@@ -1,8 +1,15 @@
 import importlib
+import sys
+from simple_blogger.poster.telegram import TelegramPoster
 
-def handler(event, context):
-    project_name = event["details"]["payload"]
+try:
+    project_name = sys.argv[1]
     module = importlib.import_module(f"projects.{project_name}")
-    module.post()
+    if len(sys.argv)<3:
+        module.post()
+    else:
+        module.post(index=sys.argv[2])
 
-    return { 'statusCode': 200, 'body': 'Hello from The Poster!' }
+except BaseException as e:
+    poster = TelegramPoster()
+    poster.post_error(f"{project_name}: {str(e)}")
