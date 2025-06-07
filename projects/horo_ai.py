@@ -5,6 +5,7 @@ from simple_blogger.blogger import SimplestBlogger
 from simple_blogger.builder import PostBuilder
 from simple_blogger.builder.content import ContentBuilder
 from simple_blogger.generator.deepseek import DeepSeekTextGenerator
+from simple_blogger.generator.openai import OpenAiTextGenerator
 from simple_blogger.preprocessor.text import TagAdder
 from simple_blogger.builder.prompt import IdentityPromptBuilder
 
@@ -13,7 +14,7 @@ class HoroscopeBlogger(SimplestBlogger):
         tomorrow = datetime.today() + timedelta(days=1)
         builder = PostBuilder(
             message_builder=ContentBuilder(
-                generator=DeepSeekTextGenerator(system_prompt='Ты - профессиональный астролог'),
+                generator=OpenAiTextGenerator(system_prompt='Ты - профессиональный астролог'),
                 prompt_builder=IdentityPromptBuilder(f"Составь гороскоп на {tomorrow.strftime('%Y-%m-%d')} для знака '{sign}', используй смайлики, используй не более 300 слов")
             )
         )
