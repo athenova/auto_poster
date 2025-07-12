@@ -17,10 +17,10 @@ class TarotBlogger(SimplestBlogger):
         builder = PostBuilder(
             message_builder=ContentBuilder(
                 generator=OpenAiTextGenerator(system_prompt=f"Ты - профессиональный таролог"),
-                prompt_builder=IdentityPromptBuilder(f"Какая энергия дня для знака '{sign}' на {tomorrow.strftime('%Y-%m-%d')}. Используй следующую структуру: Общая характеристика, энергия. Не используй 'Ок','Конечно'")
+                prompt_builder=IdentityPromptBuilder(f"Какой цвет дня для знака '{sign}' на {tomorrow.strftime('%Y-%m-%d')}. Используй следующую структуру: Цвет дня, почему, как использовать. Не используй 'Ок','Конечно'")
             )
         )
-        processor = TagAdder(['#энергиядня', f"#{sign}"])
+        processor = TagAdder(['#цветдня', f"#{sign}"])
         posters = [
             TelegramPoster(chat_id=tg_chat_id, processor=processor),
             VkPoster(group_id=vk_group_id, processor=processor)

@@ -16,11 +16,11 @@ class TarotBlogger(SimplestBlogger):
         tomorrow = datetime.today() + timedelta(days=1)
         builder = PostBuilder(
             message_builder=ContentBuilder(
-                generator=DeepSeekTextGenerator(system_prompt=f"Ты - профессиональный таролог"),
-                prompt_builder=IdentityPromptBuilder(f"Дай совет дня для знака '{sign}' на {tomorrow.strftime('%Y-%m-%d')}. Используй следующую структуру: Карта дня, ключевой посыл, что делать. Не используй 'Ок','Конечно'")
+                generator=OpenAiTextGenerator(system_prompt=f"Ты - профессиональный таролог"),
+                prompt_builder=IdentityPromptBuilder(f"Какой аркан дня для знака '{sign}' на {tomorrow.strftime('%Y-%m-%d')}. Используй следующую структуру: значение, что несёт, совет. Не используй 'Ок','Конечно'")
             )
         )
-        processor = TagAdder(['#советдня', f"#{sign}"])
+        processor = TagAdder(['#аркандня', f"#{sign}"])
         posters = [
             TelegramPoster(chat_id=tg_chat_id, processor=processor),
             VkPoster(group_id=vk_group_id, processor=processor)
