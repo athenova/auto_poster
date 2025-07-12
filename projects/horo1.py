@@ -18,7 +18,7 @@ class HoroscopeBlogger(SimplestBlogger):
         builder = PostBuilder(
             message_builder=ContentBuilder(
                 generator=OpenAiTextGenerator(system_prompt=f"Ты - профессиональный астролог"),
-                prompt_builder=IdentityPromptBuilder(f"Составь гороскоп для знака '{sign}' на неделю {tomorrow.strftime('%Y-%m-%d')} - {tomorrow_plus_7.strftime('%Y-%m-%d')}. Используй структуру: общая энергия, работа и финансы, любовь и отношения, эмоции и здоровье. Не используй 'Ок','Конечно'")
+                prompt_builder=IdentityPromptBuilder(f"Составь гороскоп для знака '{sign}' на неделю {tomorrow.strftime('%Y-%m-%d')} - {tomorrow_plus_7.strftime('%Y-%m-%d')}. Используй структуру: общая энергия, работа и финансы, любовь и отношения, эмоции и здоровье. Используй смайлики. Не используй 'Ок','Конечно'")
             )
         )
         processor = TagAdder(['#гороскоп', '#астрология', '#гороскопнанеделю', f"#{sign}"])

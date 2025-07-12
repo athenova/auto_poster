@@ -17,7 +17,7 @@ class TarotBlogger(SimplestBlogger):
         builder = PostBuilder(
             message_builder=ContentBuilder(
                 generator=OpenAiTextGenerator(system_prompt=f"Ты - профессиональный таролог"),
-                prompt_builder=IdentityPromptBuilder(f"Какой ритуал дня для знака '{sign}' на {tomorrow.strftime('%Y-%m-%d')}. Используй следующую структуру: ритуал, что понадобится, как провести, что даёт. Не используй 'Ок','Конечно'")
+                prompt_builder=IdentityPromptBuilder(f"Какой ритуал дня для знака '{sign}' на {tomorrow.strftime('%Y-%m-%d')}. Используй следующую структуру: ритуал, что понадобится, как провести, что даёт. Используй смайлики. Не используй 'Ок','Конечно'")
             )
         )
         processor = TagAdder(['#ритуалдня', f"#{sign}"])

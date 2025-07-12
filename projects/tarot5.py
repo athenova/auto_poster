@@ -17,10 +17,10 @@ class TarotBlogger(SimplestBlogger):
         builder = PostBuilder(
             message_builder=ContentBuilder(
                 generator=OpenAiTextGenerator(system_prompt=f"Ты - профессиональный таролог"),
-                prompt_builder=IdentityPromptBuilder(f"Какое настроение дня у знака '{sign}' на {tomorrow.strftime('%Y-%m-%d')}. Используй следующую структуру: Что чувствуют, С чем связано, что поможет. Не используй 'Ок','Конечно'")
+                prompt_builder=IdentityPromptBuilder(f"Какое настроение дня у знака '{sign}' на {tomorrow.strftime('%Y-%m-%d')}. Используй следующую структуру: Карта дня, что чувствуют, с чем связано, что поможет. Используй смайлики. Не используй 'Ок','Конечно'")
             )
         )
-        processor = TagAdder(['#настроениедня', f"#{sign}"])
+        processor = TagAdder(['#таро', '#настроениедня', f"#{sign}"])
         posters = [
             TelegramPoster(chat_id=tg_chat_id, processor=processor),
             VkPoster(group_id=vk_group_id, processor=processor)

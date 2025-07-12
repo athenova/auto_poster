@@ -17,7 +17,7 @@ class HoroscopeBlogger(SimplestBlogger):
         builder = PostBuilder(
             message_builder=ContentBuilder(
                 generator=OpenAiTextGenerator(system_prompt=f"Ты - профессиональный астролог"),
-                prompt_builder=IdentityPromptBuilder(f"Напиши практику дня для знака '{sign}' на {tomorrow.strftime('%Y-%m-%d')}. Используй структуру: практика дня, как выполнять, эффект. Не используй 'Ок','Конечно'")
+                prompt_builder=IdentityPromptBuilder(f"Напиши практику дня для знака '{sign}' на {tomorrow.strftime('%Y-%m-%d')}. Используй структуру: практика дня, как выполнять, эффект. Используй смайлики. Не используй 'Ок','Конечно'")
             )
         )
         processor = TagAdder(['#гороскоп', '#астрология', '#практикадня', f"#{sign}"])

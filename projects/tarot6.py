@@ -17,10 +17,10 @@ class TarotBlogger(SimplestBlogger):
         builder = PostBuilder(
             message_builder=ContentBuilder(
                 generator=OpenAiTextGenerator(system_prompt=f"Ты - профессиональный таролог"),
-                prompt_builder=IdentityPromptBuilder(f"Какой аркан дня для знака '{sign}' на {tomorrow.strftime('%Y-%m-%d')}. Используй следующую структуру: значение, что несёт, совет. Не используй 'Ок','Конечно'")
+                prompt_builder=IdentityPromptBuilder(f"Какой аркан дня для знака '{sign}' на {tomorrow.strftime('%Y-%m-%d')}. Используй следующую структуру: значение, что несёт, совет. Используй смайлики. Не используй 'Ок','Конечно'")
             )
         )
-        processor = TagAdder(['#аркандня', f"#{sign}"])
+        processor = TagAdder(['#таро', '#аркандня', f"#{sign}"])
         posters = [
             TelegramPoster(chat_id=tg_chat_id, processor=processor),
             VkPoster(group_id=vk_group_id, processor=processor)
