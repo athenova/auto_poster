@@ -17,7 +17,7 @@ class TarotBlogger(SimplestBlogger):
         builder = PostBuilder(
             message_builder=ContentBuilder(
                 generator=OpenAiTextGenerator(system_prompt=f"Ты - профессиональный таролог"),
-                prompt_builder=IdentityPromptBuilder(f"Какой цвет дня для знака '{sign}' на {tomorrow.strftime('%Y-%m-%d')}. Используй следующую структуру: Цвет дня, почему, как использовать")
+                prompt_builder=IdentityPromptBuilder(f"Какой цвет дня для знака '{sign}' на {tomorrow.strftime('%Y-%m-%d')}. Используй следующую структуру: Цвет дня, почему, как использовать. Не используй 'Ок','Конечно'")
             )
         )
         processor = TagAdder(['#цветдня', f"#{sign}"])

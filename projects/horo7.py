@@ -17,7 +17,7 @@ class HoroscopeBlogger(SimplestBlogger):
         builder = PostBuilder(
             message_builder=ContentBuilder(
                 generator=OpenAiTextGenerator(system_prompt=f"Ты - профессиональный астролог"),
-                prompt_builder=IdentityPromptBuilder(f"Напиши, какой талисман дня у знака '{sign}' {tomorrow.strftime('%Y-%m-%d')}. Используй следующую структуру: камень дня, растение-талисман, цвет свечи, аффирмация дня")
+                prompt_builder=IdentityPromptBuilder(f"Напиши, какой талисман дня у знака '{sign}' {tomorrow.strftime('%Y-%m-%d')}. Используй следующую структуру: камень дня, растение-талисман, цвет свечи, аффирмация дня. Не используй 'Ок','Конечно'")
             )
         )
         processor = TagAdder(['#гороскоп', '#астрология', '#талисмандня', f"#{sign}"])
