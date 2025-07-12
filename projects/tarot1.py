@@ -18,7 +18,7 @@ class TarotBlogger(SimplestBlogger):
         builder = PostBuilder(
             message_builder=ContentBuilder(
                 generator=OpenAiTextGenerator(system_prompt=f"Ты - профессиональный таролог"),
-                prompt_builder=IdentityPromptBuilder(f"Составь тароскоп для знака '{sign}' на неделю {tomorrow.strftime('%Y-%m-%d')} - {tomorrow_plus_7.strftime('%Y-%m-%d')}. Используй структуру: Энергия недели, Вызов, Подсказка или ресурс, Общий совет. Не используй 'Ок','Конечно'")
+                prompt_builder=IdentityPromptBuilder(f"Составь тароскоп для знака '{sign}' на неделю {tomorrow.strftime('%Y-%m-%d')} - {tomorrow_plus_7.strftime('%Y-%m-%d')}. Используй структуру: Энергия недели, Вызов, Подсказка или ресурс. Не используй 'Ок','Конечно'")
             )
         )
         processor = TagAdder(['#таро', '#таронанеделю', f"#{sign}"])
