@@ -20,7 +20,7 @@ class TarotBlogger(SimplestBlogger):
                 prompt_builder=IdentityPromptBuilder(f"Дай совет дня для знака '{sign}' на {tomorrow.strftime('%Y-%m-%d')}. Используй следующую структуру: Карта дня, ключевой посыл, что делать")
             )
         )
-        processor = TagAdder(['#гороскоп', '#таро', '#советдня', f"#{sign}"])
+        processor = TagAdder(['#советдня', f"#{sign}"])
         posters = [
             TelegramPoster(chat_id=tg_chat_id, processor=processor),
             VkPoster(group_id=vk_group_id, processor=processor)
