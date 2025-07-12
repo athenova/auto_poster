@@ -17,10 +17,10 @@ class HoroscopeBlogger(SimplestBlogger):
         builder = PostBuilder(
             message_builder=ContentBuilder(
                 generator=OpenAiTextGenerator(system_prompt=f"Ты - профессиональный астролог"),
-                prompt_builder=IdentityPromptBuilder(f"Напиши пожелание дня для знака '{sign}' на {tomorrow.strftime('%Y-%m-%d')}. Используй структуру: пожелание дня, аффирмация дня")
+                prompt_builder=IdentityPromptBuilder(f"Напиши настрой дня для знака '{sign}' на {tomorrow.strftime('%Y-%m-%d')}. Используй структуру: настрой дня, аффирмация дня")
             )
         )
-        processor = TagAdder(['#гороскоп', '#астрология', '#пожеланиедня', f"#{sign}"])
+        processor = TagAdder(['#гороскоп', '#астрология', '#настройдня', f"#{sign}"])
         posters = [
             TelegramPoster(chat_id=tg_chat_id, processor=processor),
             VkPoster(group_id=vk_group_id, processor=processor)
