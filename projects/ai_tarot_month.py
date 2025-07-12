@@ -7,7 +7,7 @@ from simple_blogger.builder.content import ContentBuilder
 from simple_blogger.generator.deepseek import DeepSeekTextGenerator
 from simple_blogger.preprocessor.text import TagAdder
 from simple_blogger.builder.prompt import IdentityPromptBuilder
-import locale
+import locale, consts
 
 class MonthTarotBlogger(SimplestBlogger):
     def __init__(self, sign, tg_chat_id, vk_group_id):
@@ -30,18 +30,18 @@ class MonthTarotBlogger(SimplestBlogger):
 
 def post():
     bloggers = [
-        MonthTarotBlogger(sign='рыбы', tg_chat_id='@pisces_the', vk_group_id='229837683'),
-        MonthTarotBlogger(sign='овен', tg_chat_id='@aries_the', vk_group_id='229837854'),
-        MonthTarotBlogger(sign='телец', tg_chat_id='@ai_tarot', vk_group_id='229860740'),
-        MonthTarotBlogger(sign='близнецы', tg_chat_id='@gemini_the', vk_group_id='229837895'),
-        MonthTarotBlogger(sign='рак', tg_chat_id='@ai_tarot', vk_group_id='229860780'),
-        MonthTarotBlogger(sign='лев', tg_chat_id='@ai_tarot', vk_group_id='229860665'),
-        MonthTarotBlogger(sign='дева', tg_chat_id='@ai_tarot', vk_group_id='229860810'),
-        MonthTarotBlogger(sign='весы', tg_chat_id='@ai_tarot', vk_group_id='229860834'),
-        MonthTarotBlogger(sign='скорпион', tg_chat_id='@ai_tarot', vk_group_id='229860866'),
-        MonthTarotBlogger(sign='стрелец', tg_chat_id='@ai_tarot', vk_group_id='229860894'),
-        MonthTarotBlogger(sign='козерог', tg_chat_id='@capricorn_the', vk_group_id='229837876'),
-        MonthTarotBlogger(sign='водолей', tg_chat_id='@aquarius_the', vk_group_id='229837930'),
+        MonthTarotBlogger(sign='рыбы', tg_chat_id=consts.tg_pisces, vk_group_id=consts.vk_pisces),
+        MonthTarotBlogger(sign='овен', tg_chat_id=consts.tg_aries, vk_group_id=consts.vk_aries),
+        MonthTarotBlogger(sign='телец', tg_chat_id=consts.tg_taurus, vk_group_id=consts.vk_taurus),
+        MonthTarotBlogger(sign='близнецы', tg_chat_id=consts.tg_gemini, vk_group_id=consts.vk_gemini),
+        MonthTarotBlogger(sign='рак', tg_chat_id=consts.tg_cancer, vk_group_id=consts.vk_cancer),
+        MonthTarotBlogger(sign='лев', tg_chat_id=consts.tg_leo, vk_group_id=consts.vk_leo),
+        MonthTarotBlogger(sign='дева', tg_chat_id=consts.tg_virgo, vk_group_id=consts.tg_virgo),
+        MonthTarotBlogger(sign='весы', tg_chat_id=consts.tg_libra, vk_group_id=consts.vk_libra),
+        MonthTarotBlogger(sign='скорпион', tg_chat_id=consts.tg_scorpio, vk_group_id=consts.vk_scorpio),
+        MonthTarotBlogger(sign='стрелец', tg_chat_id=consts.tg_sagittarius, vk_group_id=consts.vk_sagittarius),
+        MonthTarotBlogger(sign='козерог', tg_chat_id=consts.tg_capricorn, vk_group_id=consts.vk_capricorn),
+        MonthTarotBlogger(sign='водолей', tg_chat_id=consts.tg_aquarius, vk_group_id=consts.vk_aquarius),
     ]
     for blogger in bloggers:
         blogger.post()

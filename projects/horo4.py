@@ -10,6 +10,7 @@ from simple_blogger.generator.openai import OpenAiTextGenerator
 from simple_blogger.preprocessor.text import TagAdder
 from simple_blogger.builder.prompt import IdentityPromptBuilder
 from datetime import datetime, timedelta, date
+import consts
 
 class HoroscopeBlogger(SimplestBlogger):
     def __init__(self, sign, tg_chat_id, vk_group_id):
@@ -32,18 +33,18 @@ def post():
     #     HoroscopeBlogger(sign='рыбы', tg_chat_id=None, vk_group_id=None),
     # ]
     bloggers = [
-        HoroscopeBlogger(sign='рыбы', tg_chat_id='@pisces_the', vk_group_id='229837683'),
-        HoroscopeBlogger(sign='овен', tg_chat_id='@aries_the', vk_group_id='229837854'),
-        HoroscopeBlogger(sign='телец', tg_chat_id='@horo_ai', vk_group_id='229860740'),
-        HoroscopeBlogger(sign='близнецы', tg_chat_id='@gemini_the', vk_group_id='229837895'),
-        HoroscopeBlogger(sign='рак', tg_chat_id='@horo_ai', vk_group_id='229860780'),
-        HoroscopeBlogger(sign='лев', tg_chat_id='@horo_ai', vk_group_id='229860665'),
-        HoroscopeBlogger(sign='дева', tg_chat_id='@horo_ai', vk_group_id='229860810'),
-        HoroscopeBlogger(sign='весы', tg_chat_id='@horo_ai', vk_group_id='229860834'),
-        HoroscopeBlogger(sign='скорпион', tg_chat_id='@horo_ai', vk_group_id='229860866'),
-        HoroscopeBlogger(sign='стрелец', tg_chat_id='@horo_ai', vk_group_id='229860894'),
-        HoroscopeBlogger(sign='козерог', tg_chat_id='@capricorn_the', vk_group_id='229837876'),
-        HoroscopeBlogger(sign='водолей', tg_chat_id='@aquarius_the', vk_group_id='229837930'),
+        HoroscopeBlogger(sign='рыбы', tg_chat_id=consts.tg_pisces, vk_group_id=consts.vk_pisces),
+        HoroscopeBlogger(sign='овен', tg_chat_id=consts.tg_aries, vk_group_id=consts.vk_aries),
+        HoroscopeBlogger(sign='телец', tg_chat_id=consts.tg_taurus, vk_group_id=consts.vk_taurus),
+        HoroscopeBlogger(sign='близнецы', tg_chat_id=consts.tg_gemini, vk_group_id=consts.vk_gemini),
+        HoroscopeBlogger(sign='рак', tg_chat_id=consts.tg_cancer, vk_group_id=consts.vk_cancer),
+        HoroscopeBlogger(sign='лев', tg_chat_id=consts.tg_leo, vk_group_id=consts.vk_leo),
+        HoroscopeBlogger(sign='дева', tg_chat_id=consts.tg_virgo, vk_group_id=consts.tg_virgo),
+        HoroscopeBlogger(sign='весы', tg_chat_id=consts.tg_libra, vk_group_id=consts.vk_libra),
+        HoroscopeBlogger(sign='скорпион', tg_chat_id=consts.tg_scorpio, vk_group_id=consts.vk_scorpio),
+        HoroscopeBlogger(sign='стрелец', tg_chat_id=consts.tg_sagittarius, vk_group_id=consts.vk_sagittarius),
+        HoroscopeBlogger(sign='козерог', tg_chat_id=consts.tg_capricorn, vk_group_id=consts.vk_capricorn),
+        HoroscopeBlogger(sign='водолей', tg_chat_id=consts.tg_aquarius, vk_group_id=consts.vk_aquarius),
     ]
 
     for blogger in bloggers:

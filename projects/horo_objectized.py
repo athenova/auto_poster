@@ -5,7 +5,7 @@ from simple_blogger.blogger import Journalist
 from simple_blogger.preprocessor.text import TagAdder
 from simple_blogger.generator.yandex import YandexImageGenerator
 from simple_blogger.generator.deepseek import DeepSeekTextGenerator
-import datetime
+import datetime, consts
 
 class HoroBlogger(Journalist):
     def _message_generator(self):
@@ -51,18 +51,18 @@ def post(offset=0):
     ]
     index = ((today - start_date).days // 7 + offset) % len(objects)
     bloggers = [
-        HoroBlogger(objects[index], sign='рыбы', tg_chat_id='@pisces_the', vk_group_id='229837683'),
-        HoroBlogger(objects[index], sign='овен', tg_chat_id='@aries_the', vk_group_id='229837854'),
-        HoroBlogger(objects[index], sign='телец', tg_chat_id='@horo_ai', vk_group_id='229860740'),
-        HoroBlogger(objects[index], sign='близнецы', tg_chat_id='@gemini_the', vk_group_id='229837895'),
-        HoroBlogger(objects[index], sign='рак', tg_chat_id='@horo_ai', vk_group_id='229860780'),
-        HoroBlogger(objects[index], sign='лев', tg_chat_id='@horo_ai', vk_group_id='229860665'),
-        HoroBlogger(objects[index], sign='дева', tg_chat_id='@horo_ai', vk_group_id='229860810'),
-        HoroBlogger(objects[index], sign='весы', tg_chat_id='@horo_ai', vk_group_id='229860834'),
-        HoroBlogger(objects[index], sign='скорпион', tg_chat_id='@horo_ai', vk_group_id='229860866'),
-        HoroBlogger(objects[index], sign='стрелец', tg_chat_id='@horo_ai', vk_group_id='229860894'),
-        HoroBlogger(objects[index], sign='козерог', tg_chat_id='@capricorn_the', vk_group_id='229837876'),
-        HoroBlogger(objects[index], sign='водолей', tg_chat_id='@aquarius_the', vk_group_id='229837930'),
+        HoroBlogger(objects[index], sign='рыбы', tg_chat_id=consts.tg_pisces, vk_group_id=consts.vk_pisces),
+        HoroBlogger(objects[index], sign='овен', tg_chat_id=consts.tg_aries, vk_group_id=consts.vk_aries),
+        HoroBlogger(objects[index], sign='телец', tg_chat_id=consts.tg_taurus, vk_group_id=consts.vk_taurus),
+        HoroBlogger(objects[index], sign='близнецы', tg_chat_id=consts.tg_gemini, vk_group_id=consts.vk_gemini),
+        HoroBlogger(objects[index], sign='рак', tg_chat_id=consts.tg_cancer, vk_group_id=consts.vk_cancer),
+        HoroBlogger(objects[index], sign='лев', tg_chat_id=consts.tg_leo, vk_group_id=consts.vk_leo),
+        HoroBlogger(objects[index], sign='дева', tg_chat_id=consts.tg_virgo, vk_group_id=consts.tg_virgo),
+        HoroBlogger(objects[index], sign='весы', tg_chat_id=consts.tg_libra, vk_group_id=consts.vk_libra),
+        HoroBlogger(objects[index], sign='скорпион', tg_chat_id=consts.tg_scorpio, vk_group_id=consts.vk_scorpio),
+        HoroBlogger(objects[index], sign='стрелец', tg_chat_id=consts.tg_sagittarius, vk_group_id=consts.vk_sagittarius),
+        HoroBlogger(objects[index], sign='козерог', tg_chat_id=consts.tg_capricorn, vk_group_id=consts.vk_capricorn),
+        HoroBlogger(objects[index], sign='водолей', tg_chat_id=consts.tg_aquarius, vk_group_id=consts.vk_aquarius),
     ]
 
     for blogger in bloggers:

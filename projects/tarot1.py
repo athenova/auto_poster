@@ -10,6 +10,7 @@ from simple_blogger.generator.openai import OpenAiTextGenerator
 from simple_blogger.preprocessor.text import TagAdder
 from simple_blogger.builder.prompt import IdentityPromptBuilder
 from datetime import datetime, timedelta, date
+import consts
 
 class TarotBlogger(SimplestBlogger):
     def __init__(self, sign, tg_chat_id, vk_group_id):
@@ -33,18 +34,18 @@ def post():
     #     TarotBlogger(sign='рыбы', tg_chat_id=None, vk_group_id=None),
     # ]
     bloggers = [
-        TarotBlogger(sign='рыбы', tg_chat_id='@pisces_the', vk_group_id='229837683'),
-        TarotBlogger(sign='овен', tg_chat_id='@aries_the', vk_group_id='229837854'),
-        TarotBlogger(sign='телец', tg_chat_id='@horo_ai', vk_group_id='229860740'),
-        TarotBlogger(sign='близнецы', tg_chat_id='@gemini_the', vk_group_id='229837895'),
-        TarotBlogger(sign='рак', tg_chat_id='@horo_ai', vk_group_id='229860780'),
-        TarotBlogger(sign='лев', tg_chat_id='@horo_ai', vk_group_id='229860665'),
-        TarotBlogger(sign='дева', tg_chat_id='@horo_ai', vk_group_id='229860810'),
-        TarotBlogger(sign='весы', tg_chat_id='@horo_ai', vk_group_id='229860834'),
-        TarotBlogger(sign='скорпион', tg_chat_id='@horo_ai', vk_group_id='229860866'),
-        TarotBlogger(sign='стрелец', tg_chat_id='@horo_ai', vk_group_id='229860894'),
-        TarotBlogger(sign='козерог', tg_chat_id='@capricorn_the', vk_group_id='229837876'),
-        TarotBlogger(sign='водолей', tg_chat_id='@aquarius_the', vk_group_id='229837930'),
+        TarotBlogger(sign='рыбы', tg_chat_id=consts.tg_pisces, vk_group_id=consts.vk_pisces),
+        TarotBlogger(sign='овен', tg_chat_id=consts.tg_aries, vk_group_id=consts.vk_aries),
+        TarotBlogger(sign='телец', tg_chat_id=consts.tg_taurus, vk_group_id=consts.vk_taurus),
+        TarotBlogger(sign='близнецы', tg_chat_id=consts.tg_gemini, vk_group_id=consts.vk_gemini),
+        TarotBlogger(sign='рак', tg_chat_id=consts.tg_cancer, vk_group_id=consts.vk_cancer),
+        TarotBlogger(sign='лев', tg_chat_id=consts.tg_leo, vk_group_id=consts.vk_leo),
+        TarotBlogger(sign='дева', tg_chat_id=consts.tg_virgo, vk_group_id=consts.tg_virgo),
+        TarotBlogger(sign='весы', tg_chat_id=consts.tg_libra, vk_group_id=consts.vk_libra),
+        TarotBlogger(sign='скорпион', tg_chat_id=consts.tg_scorpio, vk_group_id=consts.vk_scorpio),
+        TarotBlogger(sign='стрелец', tg_chat_id=consts.tg_sagittarius, vk_group_id=consts.vk_sagittarius),
+        TarotBlogger(sign='козерог', tg_chat_id=consts.tg_capricorn, vk_group_id=consts.vk_capricorn),
+        TarotBlogger(sign='водолей', tg_chat_id=consts.tg_aquarius, vk_group_id=consts.vk_aquarius),
     ]
 
     for blogger in bloggers:

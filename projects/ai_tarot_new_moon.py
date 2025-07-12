@@ -7,7 +7,7 @@ from simple_blogger.builder.content import ContentBuilder
 from simple_blogger.generator.deepseek import DeepSeekTextGenerator
 from simple_blogger.preprocessor.text import TagAdder
 from simple_blogger.builder.prompt import IdentityPromptBuilder
-import ephem
+import ephem, consts
 
 class NewMoonTarotBlogger(SimplestBlogger):
     def __init__(self, sign, tg_chat_id, vk_group_id):
@@ -32,18 +32,18 @@ def post():
     new_moon_date = ephem.next_new_moon(today).datetime().date()
     if new_moon_date == check_date:
         bloggers = [
-            NewMoonTarotBlogger(sign='рыбы', tg_chat_id='@pisces_the', vk_group_id='229837683'),
-            NewMoonTarotBlogger(sign='овен', tg_chat_id='@aries_the', vk_group_id='229837854'),
-            NewMoonTarotBlogger(sign='телец', tg_chat_id='@ai_tarot', vk_group_id='229860740'),
-            NewMoonTarotBlogger(sign='близнецы', tg_chat_id='@gemini_the', vk_group_id='229837895'),
-            NewMoonTarotBlogger(sign='рак', tg_chat_id='@ai_tarot', vk_group_id='229860780'),
-            NewMoonTarotBlogger(sign='лев', tg_chat_id='@ai_tarot', vk_group_id='229860665'),
-            NewMoonTarotBlogger(sign='дева', tg_chat_id='@ai_tarot', vk_group_id='229860810'),
-            NewMoonTarotBlogger(sign='весы', tg_chat_id='@ai_tarot', vk_group_id='229860834'),
-            NewMoonTarotBlogger(sign='скорпион', tg_chat_id='@ai_tarot', vk_group_id='229860866'),
-            NewMoonTarotBlogger(sign='стрелец', tg_chat_id='@ai_tarot', vk_group_id='229860894'),
-            NewMoonTarotBlogger(sign='козерог', tg_chat_id='@capricorn_the', vk_group_id='229837876'),
-            NewMoonTarotBlogger(sign='водолей', tg_chat_id='@aquarius_the', vk_group_id='229837930'),
+            NewMoonTarotBlogger(sign='рыбы', tg_chat_id=consts.tg_pisces, vk_group_id=consts.vk_pisces),
+            NewMoonTarotBlogger(sign='овен', tg_chat_id=consts.tg_aries, vk_group_id=consts.vk_aries),
+            NewMoonTarotBlogger(sign='телец', tg_chat_id=consts.tg_taurus, vk_group_id=consts.vk_taurus),
+            NewMoonTarotBlogger(sign='близнецы', tg_chat_id=consts.tg_gemini, vk_group_id=consts.vk_gemini),
+            NewMoonTarotBlogger(sign='рак', tg_chat_id=consts.tg_cancer, vk_group_id=consts.vk_cancer),
+            NewMoonTarotBlogger(sign='лев', tg_chat_id=consts.tg_leo, vk_group_id=consts.vk_leo),
+            NewMoonTarotBlogger(sign='дева', tg_chat_id=consts.tg_virgo, vk_group_id=consts.tg_virgo),
+            NewMoonTarotBlogger(sign='весы', tg_chat_id=consts.tg_libra, vk_group_id=consts.vk_libra),
+            NewMoonTarotBlogger(sign='скорпион', tg_chat_id=consts.tg_scorpio, vk_group_id=consts.vk_scorpio),
+            NewMoonTarotBlogger(sign='стрелец', tg_chat_id=consts.tg_sagittarius, vk_group_id=consts.vk_sagittarius),
+            NewMoonTarotBlogger(sign='козерог', tg_chat_id=consts.tg_capricorn, vk_group_id=consts.vk_capricorn),
+            NewMoonTarotBlogger(sign='водолей', tg_chat_id=consts.tg_aquarius, vk_group_id=consts.vk_aquarius),
         ]
         for blogger in bloggers:
             blogger.post()
