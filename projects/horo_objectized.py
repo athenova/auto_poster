@@ -57,7 +57,7 @@ def post(offset=0):
         HoroBlogger(objects[index], sign='близнецы', tg_chat_id=consts.tg_gemini, vk_group_id=consts.vk_gemini),
         HoroBlogger(objects[index], sign='рак', tg_chat_id=consts.tg_cancer, vk_group_id=consts.vk_cancer),
         HoroBlogger(objects[index], sign='лев', tg_chat_id=consts.tg_leo, vk_group_id=consts.vk_leo),
-        HoroBlogger(objects[index], sign='дева', tg_chat_id=consts.tg_virgo, vk_group_id=consts.tg_virgo),
+        HoroBlogger(objects[index], sign='дева', tg_chat_id=consts.tg_virgo, vk_group_id=consts.vk_virgo),
         HoroBlogger(objects[index], sign='весы', tg_chat_id=consts.tg_libra, vk_group_id=consts.vk_libra),
         HoroBlogger(objects[index], sign='скорпион', tg_chat_id=consts.tg_scorpio, vk_group_id=consts.vk_scorpio),
         HoroBlogger(objects[index], sign='стрелец', tg_chat_id=consts.tg_sagittarius, vk_group_id=consts.vk_sagittarius),
