@@ -18,7 +18,7 @@ def post():
                 )
             ),
         posters = [
-                TelegramPoster(chat_id='@conscious_child', processor=processor),
+                TelegramPoster(chat_id='-1002400088805', processor=processor),
                 VkPoster(group_id='229995349', processor=processor)
             ]
     )
