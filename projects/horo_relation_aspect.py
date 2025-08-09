@@ -14,21 +14,21 @@ class HoroscopeBlogger(SimplestBlogger):
     def __init__(self, sign, tg_chat_id, vk_group_id, task):
         builder = PostBuilder(
             message_builder=ContentBuilder(
-                generator=DeepSeekTextGenerator(system_prompt='Ты - профессиональный астролог. Я буду давать тебе знак зодиака, категорию человеческой жизни и аспект из этой категории. Расскажи, как знаку зодиака развить этот аспект жизни. Используй смайлики, используй не более 350 слов'),
+                generator=DeepSeekTextGenerator(system_prompt='Ты - астролог. Я буду давать тебе знак зодиака, категорию человеческих отношений и аспект из этой категории. Расскажи, как знак зодиака проявляет себя в этом аспекте отношений. Используй смайлики, используй не более 350 слов'),
                 prompt_builder=IdentityPromptBuilder(f"{sign}, {task['category']}, {task['aspect']}")
             )
         )
-        processor = TagAdder(['#астрология', '#развитие', f"#{sign}"])
+        processor = TagAdder(['#астрология', '#отношения', f"#{sign}"])
         posters = [
-            TelegramPoster(chat_id=tg_chat_id, processor=processor),
-            VkPoster(group_id=vk_group_id, processor=processor),
-            # TelegramPoster()
+            # TelegramPoster(chat_id=tg_chat_id, processor=processor),
+            # VkPoster(group_id=vk_group_id, processor=processor),
+            TelegramPoster(processor=processor)
         ]
         super().__init__(builder, posters)
 
 def post(offset=0):
-    tasks = json.load(open("./files/life_aspect.json", "rt", encoding="UTF-8"))
-    start_date = date(2025, 8, 11)
+    tasks = json.load(open("./files/relation_aspect.json", "rt", encoding="UTF-8"))
+    start_date = date(2025, 8, 13)
     today = date.today()
     index = ((today - start_date).days // 7 + offset) % len(tasks)
     task = tasks[index]
