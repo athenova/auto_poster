@@ -5,7 +5,7 @@ from simple_blogger.blogger import Journalist
 from simple_blogger.preprocessor.text import TagAdder
 from simple_blogger.generator.yandex import YandexImageGenerator
 from simple_blogger.generator.deepseek import DeepSeekTextGenerator
-import datetime, consts
+import datetime, consts, time
 
 class HoroBlogger(Journalist):
     def _message_generator(self):
@@ -67,6 +67,7 @@ def post(offset=0):
 
     for blogger in bloggers:
         blogger.post()
+        time.sleep(30)
 
 if __name__ == "__main__":
     post()

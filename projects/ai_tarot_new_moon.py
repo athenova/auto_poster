@@ -47,3 +47,6 @@ def post():
         ]
         for blogger in bloggers:
             blogger.post()
+
+if __name__ == "__main__":
+    post()
