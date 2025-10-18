@@ -30,19 +30,19 @@ def post(offset=0):
     for sign in range(1,12):
         tasks = []
         match sign:
-            case  1: tasks = json.load(open("./files/legendary_pisces.json", "rt", encoding="UTF-8")), 'рыбы', consts.tg_pisces, consts.vk_pisces
-            case  2: tasks = json.load(open("./files/legendary_aries.json", "rt", encoding="UTF-8")), 'овен',consts.tg_aries, consts.vk_aries
-            case  3: tasks = json.load(open("./files/legendary_taurus.json", "rt", encoding="UTF-8")), 'телец',consts.tg_taurus, consts.vk_taurus
-            case  4: tasks = json.load(open("./files/legendary_gemini.json", "rt", encoding="UTF-8")), 'близнецы',consts.tg_gemini, consts.vk_gemini
-            case  5: tasks = json.load(open("./files/legendary_cancer.json", "rt", encoding="UTF-8")), 'рак',consts.tg_cancer, consts.vk_cancer
-            case  6: tasks = json.load(open("./files/legendary_leo.json", "rt", encoding="UTF-8")), 'лев',consts.tg_leo, consts.vk_leo
-            case  7: tasks = json.load(open("./files/legendary_virgo.json", "rt", encoding="UTF-8")), 'дева', consts.tg_virgo, consts.vk_virgo
-            case  8: tasks = json.load(open("./files/legendary_libra.json", "rt", encoding="UTF-8")), 'весы',consts.tg_libra, consts.vk_libra
-            case  9: tasks = json.load(open("./files/legendary_scorpio.json", "rt", encoding="UTF-8")), 'скорпион',consts.tg_scorpio, consts.vk_scorpio
-            case 10: tasks = json.load(open("./files/legendary_sagittarius.json", "rt", encoding="UTF-8")), 'стрелец',consts.tg_sagittarius, consts.vk_sagittarius
-            case 11: tasks = json.load(open("./files/legendary_capricorn.json", "rt", encoding="UTF-8")), 'козерог',consts.tg_capricorn, consts.vk_capricorn
-            case 12: tasks = json.load(open("./files/legendary_aquarius.json", "rt", encoding="UTF-8")), 'водолей',consts.tg_aquarius, consts.vk_aquarius
-        start_date = date(2025, 7, 27)-timedelta(days=offset)
+            case  1: tasks = json.load(open("./files/legendary/legendary_pisces.json", "rt", encoding="UTF-8")), 'рыбы', consts.tg_pisces, consts.vk_pisces
+            case  2: tasks = json.load(open("./files/legendary/legendary_aries.json", "rt", encoding="UTF-8")), 'овен',consts.tg_aries, consts.vk_aries
+            case  3: tasks = json.load(open("./files/legendary/legendary_taurus.json", "rt", encoding="UTF-8")), 'телец',consts.tg_taurus, consts.vk_taurus
+            case  4: tasks = json.load(open("./files/legendary/legendary_gemini.json", "rt", encoding="UTF-8")), 'близнецы',consts.tg_gemini, consts.vk_gemini
+            case  5: tasks = json.load(open("./files/legendary/legendary_cancer.json", "rt", encoding="UTF-8")), 'рак',consts.tg_cancer, consts.vk_cancer
+            case  6: tasks = json.load(open("./files/legendary/legendary_leo.json", "rt", encoding="UTF-8")), 'лев',consts.tg_leo, consts.vk_leo
+            case  7: tasks = json.load(open("./files/legendary/legendary_virgo.json", "rt", encoding="UTF-8")), 'дева', consts.tg_virgo, consts.vk_virgo
+            case  8: tasks = json.load(open("./files/legendary/legendary_libra.json", "rt", encoding="UTF-8")), 'весы',consts.tg_libra, consts.vk_libra
+            case  9: tasks = json.load(open("./files/legendary/legendary_scorpio.json", "rt", encoding="UTF-8")), 'скорпион',consts.tg_scorpio, consts.vk_scorpio
+            case 10: tasks = json.load(open("./files/legendary/legendary_sagittarius.json", "rt", encoding="UTF-8")), 'стрелец',consts.tg_sagittarius, consts.vk_sagittarius
+            case 11: tasks = json.load(open("./files/legendary/legendary_capricorn.json", "rt", encoding="UTF-8")), 'козерог',consts.tg_capricorn, consts.vk_capricorn
+            case 12: tasks = json.load(open("./files/legendary/legendary_aquarius.json", "rt", encoding="UTF-8")), 'водолей',consts.tg_aquarius, consts.vk_aquarius
+        start_date = date(2025, 10, 17)-timedelta(days=offset)
         today = date.today()
         index = ((today - start_date).days // 7 + offset) % len(tasks[0])
         blogger = LegendaryHoroBlogger(tasks[0][index], tasks[1], tasks[2], tasks[3])
