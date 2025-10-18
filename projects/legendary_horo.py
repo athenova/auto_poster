@@ -20,9 +20,9 @@ class LegendaryHoroBlogger(Journalist):
         self.sign = sign
         tagadder = TagAdder(['#гороскоп', '#астрология', '#знаменитые', f"#{self.sign}"])
         posters = [
-            # TelegramPoster(chat_id=tg_chat_id, processor=tagadder),
-            # VkPoster(group_id=vk_group_id, processor=tagadder)
-            TelegramPoster(processor=tagadder)
+            TelegramPoster(chat_id=tg_chat_id, processor=tagadder),
+            VkPoster(group_id=vk_group_id, processor=tagadder)
+            # TelegramPoster(processor=tagadder)
         ]
         super().__init__(posters)
 
@@ -42,7 +42,7 @@ def post(offset=0):
             case 10: tasks = json.load(open("./files/legendary/legendary_sagittarius.json", "rt", encoding="UTF-8")), 'стрелец',consts.tg_sagittarius, consts.vk_sagittarius
             case 11: tasks = json.load(open("./files/legendary/legendary_capricorn.json", "rt", encoding="UTF-8")), 'козерог',consts.tg_capricorn, consts.vk_capricorn
             case 12: tasks = json.load(open("./files/legendary/legendary_aquarius.json", "rt", encoding="UTF-8")), 'водолей',consts.tg_aquarius, consts.vk_aquarius
-        start_date = date(2025, 10, 17)-timedelta(days=offset)
+        start_date = date(2025, 10, 18)-timedelta(days=offset)
         today = date.today()
         index = ((today - start_date).days // 7 + offset) % len(tasks[0])
         blogger = LegendaryHoroBlogger(tasks[0][index], tasks[1], tasks[2], tasks[3])
