@@ -27,7 +27,7 @@ class LegendaryHoroBlogger(Journalist):
         super().__init__(posters)
 
 def post(offset=0):
-    for sign in range(1,12):
+    for sign in range(1,13):
         tasks = []
         match sign:
             case  1: tasks = json.load(open("./files/legendary/legendary_pisces.json", "rt", encoding="UTF-8")), 'рыбы', consts.tg_pisces, consts.vk_pisces
