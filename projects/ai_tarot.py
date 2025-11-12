@@ -20,7 +20,7 @@ class TarotBlogger(SimplestBlogger):
         )
         processor = TagAdder(['#гороскоп', '#таро', '#тароназавтра', f"#{sign}"])
         posters = [
-            TelegramPoster(chat_id=tg_chat_id, processor=processor),
+            # TelegramPoster(chat_id=tg_chat_id, processor=processor),
             VkPoster(group_id=vk_group_id, processor=processor)
         ]
         super().__init__(builder, posters)

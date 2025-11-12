@@ -20,7 +20,7 @@ class LegendaryHoroBlogger(Journalist):
         self.sign = sign
         tagadder = TagAdder(['#гороскоп', '#астрология', '#знаменитые', f"#{self.sign}"])
         posters = [
-            TelegramPoster(chat_id=tg_chat_id, processor=tagadder),
+            # TelegramPoster(chat_id=tg_chat_id, processor=tagadder),
             VkPoster(group_id=vk_group_id, processor=tagadder)
             # TelegramPoster(processor=tagadder)
         ]
