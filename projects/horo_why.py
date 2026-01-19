@@ -19,13 +19,13 @@ class SignHoroscopeBlogger(SimplestBlogger):
         )
         processor = TagAdder(['#гороскоп', '#астрология', f"#{sign}"])
         posters = [
-            TelegramPoster(chat_id=tg_chat_id, processor=processor),
+            # TelegramPoster(chat_id=tg_chat_id, processor=processor),
             VkPoster(group_id=vk_group_id, processor=processor)
             # VkPoster(group_id=None, processor=processor)
         ]
         super().__init__(builder, posters)
 
-def post(sign2):
+def post_real(sign2):
     bloggers = [
         SignHoroscopeBlogger(sign='рыбы', tg_chat_id=consts.tg_pisces, vk_group_id=consts.vk_pisces, sign2=sign2),
         SignHoroscopeBlogger(sign='овен', tg_chat_id=consts.tg_aries, vk_group_id=consts.vk_aries, sign2=sign2),
@@ -44,18 +44,21 @@ def post(sign2):
     for blogger in bloggers:
         blogger.post()
 
-if __name__ == "__main__":
+def post():
     today = date.today()
     match (today.day, today.month):
-        case (19, 2): post('рыбы')
-        case (21, 3): post('овен')
-        case (21, 4): post('телец')
-        case (21, 5): post('близнецы')
-        case (22, 6): post('рак')
-        case (23, 7): post('лев')
-        case (23, 8): post('дева')
-        case (23, 9): post('весы')
-        case (23, 10): post('скорпион')
-        case (23, 11): post('стрелец')
-        case (22, 12): post('козерог')
-        case (20, 1): post('водолей')
+        case (19, 2): post_real('рыбы')
+        case (21, 3): post_real('овен')
+        case (21, 4): post_real('телец')
+        case (21, 5): post_real('близнецы')
+        case (22, 6): post_real('рак')
+        case (23, 7): post_real('лев')
+        case (23, 8): post_real('дева')
+        case (23, 9): post_real('весы')
+        case (23, 10): post_real('скорпион')
+        case (23, 11): post_real('стрелец')
+        case (22, 12): post_real('козерог')
+        case (20, 1): post_real('водолей')
+
+if __name__ == "__main__":
+    post()    
